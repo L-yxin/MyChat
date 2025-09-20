@@ -1,0 +1,11 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 主对话框（左上） -->
+  <rect x="8" y="10" width="36" height="22" rx="10" fill="#73AE52"/>
+  <!-- 主对话框尾巴（左下圆角衔接） -->
+  <polygon points="8,24 30,20 5,42" fill="#73AE52"/>
+
+  <!-- 副对话框（右下） -->
+  <rect x="30" y="34" width="24" height="16" rx="8" fill="#73AE52"/>
+  <!-- 副对话框尾巴（右下圆角衔接） -->
+  <polygon points="48,50 54,44 60,60" fill="#73AE52"/>
+</svg>

@@ -1,0 +1,52 @@
+{
+    "index":{
+        "title": "Mychat",
+        "subtitle": "记录生活的点点滴滴，聊天也是一种生活方式",
+        "secure": "安全",
+        "secureInfo": "聊天数据保存到本地，服务器不保存任何数据。\n数据隐私有保障。",
+        "sync": "同步",
+        "syncInfo": "动态从已登陆的账号同步数据。\n告别聊天数据上下文异常。",
+        "MychatMoments": "我的朋友圈",
+        "MychatMomentsInfo": "分享你的日常，让好友see see你。",
+        "login": "登录",
+        "register": "注册"
+    },
+    "copyright": "Copyright © 2023-2024 Mychat. All rights reserved.",
+    "login":{
+        "login": "登录",
+        "register": "注册",
+        "username": "用户名",
+        "password": "密码",
+        "confirmPassword": "确认密码",
+        "loginSuccess": "登录成功",
+        "registerSuccess": "注册成功",
+        "loginFailed": "登录失败",
+        "registerFailed": "注册失败",
+        "usernameExists": "用户名已存在",
+        "usernameNotExists": "用户名不存在",
+        "howWouldYouLikeToLogIn":"你希望用什么方式登录",
+        "email": "邮箱",
+        "account": "Mychat账号（手机号）",
+        "pleaseEnterYourAccount": "请输入账号",
+        "pleaseEnterYourPassword": "请输入密码",
+        "next": "下一步",
+        "lengthOf11Characters": "账号长度应为11位",
+        "home": "首页",
+        "pleaseEnterYourEmail": "请输入邮箱",
+        "invalidEmailFormat": "邮箱格式不正确"
+
+    },
+    "register": {
+        "register": "注册",
+        "username": "用户名",
+        "password": "密码",
+        "confirmPassword":"确认密码",
+        "email":"邮箱",
+        "OptionalFields":"选填项",
+        "theUsernameCannotBeEmpty":"用户名不能为空",
+        "thePasswordCannotBeEmpty":"密码不能为空"
+       
+
+    }
+
+}

@@ -1,0 +1,50 @@
+{
+    "index": {
+        "title": "Mychat",
+        "subtitle": "Record every bit of life; chatting is also a way of life",
+        "secure": "Secure",
+        "secureInfo": "Chat data is saved locally; the server does not store any data.\nYour data privacy is protected.",
+        "sync": "Sync",
+        "syncInfo": "Dynamically sync data from logged-in accounts.\nSay goodbye to chat data context anomalies.",
+        "MychatMoments": "My Moments",
+        "MychatMomentsInfo": "Share your daily life and let friends take a look.",
+        "login": "Log in",
+        "register": "Register"
+    },
+    "copyright": "Copyright © 2023-2024 Mychat. All rights reserved.",
+    "login": {
+        "login": "Log in",
+        "register": "Register",
+        "username": "Username",
+        "password": "Password",
+        "confirmPassword": "Confirm Password",
+        "loginSuccess": "Log in successful",
+        "registerSuccess": "Registration successful",
+        "loginFailed": "Log in failed",
+        "registerFailed": "Registration failed",
+        "usernameExists": "Username already exists",
+        "usernameNotExists": "Username does not exist",
+        "howWouldYouLikeToLogIn":"How would you like to log in?",
+        "email": "Email",
+        "account": "Mychat Account",
+        "pleaseEnterYourAccount": "Please enter your account",
+        "pleaseEnterYourPassword": "Please enter your password",
+        "next": "Next",
+        "lengthOf11Characters": "Account length should be 11 characters",
+        "home": "Home",
+        "pleaseEnterYourEmail": "Please enter your email",
+        "invalidEmailFormat": "Invalid email format"
+    },
+     "register": {
+        "register": "register",
+        "username": "user name",
+        "password": "password",
+        "confirmPassword": "confirm password",
+        "email":"Email",
+        "OptionalFields":"Optional Fields",
+        "theUsernameCannotBeEmpty":"The username cannot be empty",
+        "thePasswordCannotBeEmpty":"The password cannot be empty"
+       
+
+    }
+}
