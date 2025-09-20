@@ -27,7 +27,6 @@
 
 </template>
 <script setup>
-import { ElContainer, ElMain, ElHeader, ElAside, ElRow, ElButton, ElInput, ElImage, ElIcon } from 'element-plus';
 import { ChatRound,Setting,HelpFilled,User,ChatSquare } from '@element-plus/icons-vue'
 import logo from '../assets/logo.svg'
 </script>
