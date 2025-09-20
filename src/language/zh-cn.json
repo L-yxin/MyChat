@@ -21,8 +21,8 @@
         "loginSuccess": "登录成功",
         "registerSuccess": "注册成功",
         "loginFailed": "登录失败",
-        "registerFailed": "注册失败",
-        "usernameExists": "用户名已存在",
+       
+        "usernameExists": "用户已存在",
         "usernameNotExists": "用户名不存在",
         "howWouldYouLikeToLogIn":"你希望用什么方式登录",
         "email": "邮箱",
@@ -33,10 +33,14 @@
         "lengthOf11Characters": "账号长度应为11位",
         "home": "首页",
         "pleaseEnterYourEmail": "请输入邮箱",
-        "invalidEmailFormat": "邮箱格式不正确"
+        "invalidEmailFormat": "邮箱格式不正确",
+        "phone": "手机号",
+        "phoneCode": "国家区号"
 
     },
     "register": {
+         "registerFailed": "注册失败",
+          "usernameExists": "用户已存在",
         "register": "注册",
         "username": "用户名",
         "password": "密码",
@@ -44,7 +48,15 @@
         "email":"邮箱",
         "OptionalFields":"选填项",
         "theUsernameCannotBeEmpty":"用户名不能为空",
-        "thePasswordCannotBeEmpty":"密码不能为空"
+        "thePasswordCannotBeEmpty":"密码不能为空",
+         "phone": "手机号",
+        "phoneCode": "国家区号",
+        "invalidPhoneNumber": "无效的电话号码",
+         "pleaseEnterEmailOrPhone": "请输入邮箱或手机号",
+        "invalidEmail": "无效的邮箱地址",
+        "pleaseEnterEmail": "请输入邮箱",
+        "pleaseEnterPhone": "请输入手机号"
+
        
 
     }

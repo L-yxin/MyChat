@@ -21,8 +21,8 @@
         "loginSuccess": "Log in successful",
         "registerSuccess": "Registration successful",
         "loginFailed": "Log in failed",
-        "registerFailed": "Registration failed",
-        "usernameExists": "Username already exists",
+        
+       
         "usernameNotExists": "Username does not exist",
         "howWouldYouLikeToLogIn":"How would you like to log in?",
         "email": "Email",
@@ -33,9 +33,13 @@
         "lengthOf11Characters": "Account length should be 11 characters",
         "home": "Home",
         "pleaseEnterYourEmail": "Please enter your email",
-        "invalidEmailFormat": "Invalid email format"
+        "invalidEmailFormat": "Invalid email format",
+        "phone": "Phone",
+        "phoneCode": "Country Code"
     },
      "register": {
+         "usernameExists": "User already exists",
+        "registerFailed": "Registration failed",
         "register": "register",
         "username": "user name",
         "password": "password",
@@ -43,7 +47,14 @@
         "email":"Email",
         "OptionalFields":"Optional Fields",
         "theUsernameCannotBeEmpty":"The username cannot be empty",
-        "thePasswordCannotBeEmpty":"The password cannot be empty"
+        "thePasswordCannotBeEmpty":"The password cannot be empty",
+         "phone": "Phone",
+        "phoneCode": "Country Code",
+        "invalidPhoneNumber": "Invalid phone number",
+        "pleaseEnterEmailOrPhone": "Please enter email or phone number",
+        "invalidEmail": "Invalid email address",
+        "pleaseEnterEmail": "Please enter your email",
+        "pleaseEnterPhone": "Please enter your phone number"
        
 
     }

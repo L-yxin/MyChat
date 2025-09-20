@@ -28,8 +28,14 @@
                     <el-form-item :label="languageStore.language.register.confirmPassword" prop="confirmPassword">
                         <el-input v-model="registerForm.confirmPassword" type="password"></el-input>
                     </el-form-item>
+                    <el-form-item :label="languageStore.language.register.phone" prop="phone">
+                        <el-input v-model="registerForm.phone" :placeholder="languageStore.language.register.OptionalFields" type="tel"></el-input>
+                    </el-form-item>
+                    <el-form-item :label="languageStore.language.register.phoneCode" prop="phoneCode">
+                        <el-input v-model="registerForm.phoneCode" :disabled="true"></el-input>
+                    </el-form-item>
                     <el-form-item>
-                        <el-button type="primary" @click="register">{{ languageStore.language.register.register
+                        <el-button type="primary" @click="registerMothod">{{ languageStore.language.register.register
                         }}</el-button>
                     </el-form-item>
                 </el-form>
@@ -42,13 +48,9 @@
 
 </template>
 <script setup>
-import {
-    ElRow, ElCol, ElCard, ElMain, ElText, ElContainer, ElHeader, ElSelect, ElOption, ElButton,
-    ElLink, ElFooter, ElForm, ElFormItem, ElInput
-} from 'element-plus'
-import { Lock, Connection, User } from '@element-plus/icons-vue'
 import { useLanguageStore } from '@/stores/language';
-import { ref, onMounted, watch,computed } from 'vue';
+import { register } from '@/api';
+import router from '@/router';
 const languageStore = useLanguageStore();
 const language = ref(languageStore.languageType);
 const registerFormRef = ref(null);
@@ -58,8 +60,23 @@ const registerForm = ref({
     password: '',
     confirmPassword: '',
     email: '',
+    phone: '',
+    phoneCode: '+86'
 });
-const registerRules = computed(()=>({
+const validPhone = (phone) => {
+    if(!phone) return false; // 如果手机号为空，返回false
+    const phoneRegex = /^1[3-9]\d{9}$/;
+    return phoneRegex.test(phone);
+};
+const validEmail = (email) => {
+    if(!email) return false; // 如果邮箱为空，返回false
+    // 通用邮箱正则表达式
+    const emailReg = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailReg.test(email);
+};
+
+
+const registerRules = computed(() => ({
     username: [
         {
             required: true,
@@ -83,12 +100,51 @@ const registerRules = computed(()=>({
     ],
     email: [
         {
+            validator: (rule, value, callback) => {
+                // 获取手机号字段的值
+                const phoneValue = registerForm.value.phone;
+                if (validPhone(phoneValue)) {
+                    return callback();
+                }
+                
+                // 邮箱不为空时验证格式（如果需要）
+                if (!validEmail(value)) {
+                    return callback(new Error(languageStore.language.register.invalidEmail));
+                }
+                
+                callback();
+            },
+            trigger: ['blur', 'change']
+        }
+    ],
+    phone: [
+        {
+            validator: (rule, value, callback) => {
+                // 获取邮箱字段的值
+                const emailValue = registerForm.value.email;
+                if (validEmail(emailValue)) {
+                    callback();
+                }
+                
+                // 手机号不为空时验证格式
+                if (!validPhone(value)) {
+                    return callback(new Error(languageStore.language.register.invalidPhoneNumber));
+                }
+                
+                callback();
+            },
+            trigger: ['blur', 'change']
+        }
+    ],
+    phoneCode: [
+        {
             required: false,
-            message: language.value.email,
+            message: language.value.phoneCode,
             trigger: 'blur'
         }
     ]
-}))
+}));
+    
 const updateLabelWidth = () => {
     labelWidth.value = "max-content"
     let labbels = registerFormRef.value.$el.getElementsByClassName('el-form-item__label')
@@ -103,19 +159,21 @@ const updateLabelWidth = () => {
         labelWidth.value = maxWidth + 'px';
     }, 0)
 }
-const register = () => { 
-    registerFormRef.value.validate(async (valid) => { 
-        if (valid) { 
-            console.log('submit!'); 
-        } else if (!valid) { 
-            console.log('error submit!!'); 
-            return false;
-        
-        } else { 
-            console.log('error submit!!'); 
-            return false; 
-        }
-    })
+const registerMothod = async() => { 
+    let res = await registerFormRef.value.validate();
+    if(res){
+        register(registerForm.value.email, registerForm.value.phone, registerForm.value.phoneCode, registerForm.value.password,registerForm.value.username).then(res=>{
+            console.log(res)
+            router.push('/login')
+        }).catch(err=>{
+            console.log(err)
+            if(err.message === 'user already exists'){
+                alert(languageStore.language.register.usernameExists)
+                return
+            }
+            alert(languageStore.language.register.registerFailed )
+        })
+    }
 }
 watch(languageStore, updateLabelWidth)
 onMounted(() => {

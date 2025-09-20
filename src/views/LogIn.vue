@@ -35,6 +35,11 @@
             </div>
             <div class="login-account" v-show="showLoginMothod('account')" ref="accountCard">
               <h1>{{ languageStore.language.login.pleaseEnterYourAccount }}</h1>
+              <el-form-item :label="languageStore.language.login.phoneCode" prop="phoneCode"
+                class="ep-login-Item">
+                <el-input class="ep-login-input" :placeholder="languageStore.language.login.phoneCode"
+                  v-model="loginForm.phoneCode" disabled />
+              </el-form-item>
               <el-form-item :label="languageStore.language.login.account" prop="phone" class="ep-login-Item">
                 <el-input class="ep-login-input" :placeholder="languageStore.language.login.account"
                   v-model="loginForm.phone" />
@@ -88,7 +93,8 @@ const passwordCard = ref(null)
 let loginForm = reactive({
   phone: '',
   password: '',
-  email: ''
+  email: '',
+  phoneCode: '+86'
 })
 
 // 表单引用 - 单独创建 ref 变量（新增这一行）
@@ -148,7 +154,7 @@ const loginMothod = async () => {
   let valid = await formRef.value.validateField('password')
    
   if (valid) {
-  login(loginForm.email,loginForm.phone,"+86",loginForm.password).then(res=>{
+  login(loginForm.email,loginForm.phone,loginForm.phoneCode,loginForm.password).then(res=>{
     alert(languageStore.language.login.loginSuccess)
     router.push('/ChatsList')
   }).catch(err=>{
